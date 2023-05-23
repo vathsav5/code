@@ -1,0 +1,28 @@
+1) Smallest of array :
+	area smallestarr, code, readonly, align = 2 
+	entry 
+	export __main 
+__main
+	ldr r0, =arr1
+	ldr r1, =5
+	ldr r3, [r0] , #4
+loop
+	ldr r4, [r0] , #4 
+	cmp r3 , r4
+		bls smaller 
+	mov r3 , r4
+smaller 
+	subs r1, #1 
+	bne loop
+	ldr r2, =smallNo
+	str r3, [r2]
+	nop 
+	nop 
+arr1 dcd 5 
+	 dcd 3
+	 dcd 8
+     dcd 10
+	 dcd 1 
+	area input , data , readwrite 
+smallNo dcd 0x0 
+	end 

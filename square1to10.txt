@@ -1,0 +1,24 @@
+
+6) Square of 1to10 using lookup table :
+	area lookupsquare, code, readonly, align = 2 
+	entry 
+	export __main 
+__main 
+	ldr r0, =table1
+	ldr r1, =8 ; to find the required value square 
+	mov r1,r1,lsl #02 
+	add r0,r0,r1
+	ldr r2 ,[r0]  
+stop 
+	
+table1 dcd 0x00000000
+	   dcd 0x00000001
+	   dcd 0x00000004
+	   dcd 0x00000009
+	   dcd 0x00000010
+	   dcd 0x00000019
+	   dcd 0x00000024
+	   dcd 0x00000031
+	   dcd 0x00000040
+	   dcd 0x00000051
+	   dcd 0x00000064
